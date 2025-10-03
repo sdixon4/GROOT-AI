@@ -1,3 +1,5 @@
+// GRO Control Room — TypeScript config
+// GRO Control Room — TypeScript config
 {
   "files": [],
   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
