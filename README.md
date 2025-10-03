@@ -3,10 +3,24 @@
 > A focused prototype to give UH Government Relations (GRO) **speed, accuracy, and context** across a fragmented legislative workflow.
 
 ---
+## Team
+
+
+
+Bolosan, Dhaniel A.
+
+Dixon, Shelby
+
+Ellis, Angela
+
+Goodman, Tate A.
+
+Tajiri, Micah M.
+
 
 ## Background
 
-After early customer discovery, Jeff asked us (Wed) to pivot from interviews → **working prototype**. We synthesized pain points from GRO-facing interviews (Wendy Tatsuno, Janice Yamada, Garrett Yoshimi, Kim Siegenthaler, etc.) and designed a single **Control Room** that pulls together triage, amendments, hearings, and institutional memory.
+After early customer discovery, Jeff asked us to pivot from interviews → **working prototype**. We synthesized pain points from GRO-facing interviews (Wendy Tatsuno, Janice Yamada, Garrett Yoshimi, Kim Siegenthaler, etc.) and designed a single **Control Room** that pulls together triage, amendments, hearings, and institutional memory.
 
 **Core problems we heard**
 - **Bill flood at session start** → thousands drop at once; UH implications are hard to spot, esp. when UH isn’t named.
