@@ -1,5 +1,5 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "groot-ai",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -79,5 +79,16 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
+  },
+  "description": "GRO Control Room — MVP mockups (triage → diff → hearing → context → digest).",
+  "author": "Shelby Dixon <you@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sdixon4/GROOT-AI.git"
+  },
+  "homepage": "https://github.com/sdixon4/GROOT-AI#readme",
+  "bugs": {
+    "url": "https://github.com/sdixon4/GROOT-AI/issues"
   }
 }
