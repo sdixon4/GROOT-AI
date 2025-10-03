@@ -90,5 +90,6 @@
   "homepage": "https://github.com/sdixon4/GROOT-AI#readme",
   "bugs": {
     "url": "https://github.com/sdixon4/GROOT-AI/issues"
-  }
+  },
+  "packageManager": "npm@10"
 }
