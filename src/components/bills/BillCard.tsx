@@ -18,7 +18,7 @@ export function BillCard({ bill }: BillCardProps) {
     : 'bg-muted text-muted-foreground';
 
   return (
-    <Link to={`/bill/${bill.id}`}>
+    <Link to={`/bills/${bill.id}`}>
       <Card className="p-4 hover:shadow-md transition-all cursor-pointer border-l-4 hover:border-l-accent">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">

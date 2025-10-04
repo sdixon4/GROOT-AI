@@ -1,11 +1,11 @@
 import { Sidebar } from '@/components/layout/Sidebar';
-import Dashboard from './Dashboard';
+import Triage from './Triage';
 
 const Index = () => {
   return (
     <div className="flex min-h-screen bg-background">
       <Sidebar />
-      <Dashboard />
+      <Triage />
     </div>
   );
 };

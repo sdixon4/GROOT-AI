@@ -3,7 +3,7 @@ import { LayoutDashboard, FileText, Gavel, Archive, FileStack, Search } from 'lu
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { to: '/', icon: LayoutDashboard, label: 'Triage Queue' },
+  { to: '/triage', icon: LayoutDashboard, label: 'Triage Queue' },
   { to: '/bills', icon: FileText, label: 'All Bills' },
   { to: '/hearings', icon: Gavel, label: 'Hearings' },
   { to: '/archive', icon: Archive, label: 'Context Archive' },
@@ -35,7 +35,6 @@ export function Sidebar() {
             <li key={item.to}>
               <NavLink
                 to={item.to}
-                end={item.to === '/'}
                 className={({ isActive }) =>
                   cn(
                     'flex items-center gap-3 px-4 py-2.5 rounded-md text-sm font-medium transition-colors',
