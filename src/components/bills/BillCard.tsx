@@ -1,6 +1,7 @@
 import { Bill } from '@/types/legislative';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Clock, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -27,16 +28,29 @@ export function BillCard({ bill }: BillCardProps) {
                 {bill.chamber}
               </Badge>
               {bill.confidence && (
-                <Badge 
-                  className={cn(
-                    "text-xs",
-                    bill.confidence === 'Confirmed' 
-                      ? "bg-success-muted text-success border-success" 
-                      : "bg-warning-muted text-warning border-warning"
-                  )}
-                >
-                  {bill.confidence}
-                </Badge>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge 
+                        className={cn(
+                          "text-xs cursor-help",
+                          bill.confidence === 'Confirmed' 
+                            ? "bg-success-muted text-success border-success" 
+                            : "bg-warning-muted text-warning border-warning"
+                        )}
+                      >
+                        {bill.confidence}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className="text-xs">
+                        {bill.confidence === 'Confirmed' 
+                          ? 'AI classification verified by staff' 
+                          : 'AI classification pending review'}
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               )}
             </div>
             
