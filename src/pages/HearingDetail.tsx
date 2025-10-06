@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, Calendar, MapPin, Video, AlertCircle } from 'lucide-react';
 import { Sidebar } from '@/components/layout/Sidebar';
+import { ProvenanceFooter } from '@/components/layout/ProvenanceFooter';
 import { mockHearings, mockBills } from '@/data/mockBills';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -155,6 +156,11 @@ export default function HearingDetail() {
               </CardContent>
             </Card>
           )}
+
+          <ProvenanceFooter
+            year={parseInt(bill.session)}
+            lastSync="2025-01-15T18:00:00Z"
+          />
         </div>
       </main>
     </div>

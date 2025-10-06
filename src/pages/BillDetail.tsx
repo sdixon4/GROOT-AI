@@ -1,5 +1,6 @@
 import { useParams, useSearchParams, Link } from 'react-router-dom';
 import { Sidebar } from '@/components/layout/Sidebar';
+import { ProvenanceFooter } from '@/components/layout/ProvenanceFooter';
 import { mockBills, mockAmendments, mockHearings, mockTestimonies } from '@/data/mockBills';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -358,6 +359,12 @@ export default function BillDetail() {
             </Card>
           </TabsContent>
         </Tabs>
+
+        <ProvenanceFooter
+          billNumber={bill.number}
+          year={parseInt(bill.session)}
+          lastSync="2025-01-15T18:00:00Z"
+        />
       </div>
     </div>
     </div>

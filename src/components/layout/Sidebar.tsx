@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LayoutDashboard, FileText, Gavel, Archive, FileStack, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SessionSelector } from './SessionSelector';
+import { getCurrentSession } from '@/data/client';
 
 const navItems = [
   { to: '/triage', icon: LayoutDashboard, label: 'Triage Queue' },
@@ -11,11 +14,16 @@ const navItems = [
 ];
 
 export function Sidebar() {
+  const [selectedSession, setSelectedSession] = useState(getCurrentSession());
+
   return (
     <aside className="w-64 bg-sidebar border-r border-sidebar-border flex flex-col">
       <div className="p-6 border-b border-sidebar-border">
         <h1 className="text-xl font-bold text-sidebar-foreground">GRO Control</h1>
         <p className="text-sm text-sidebar-foreground/70 mt-1">Legislative Tracker</p>
+        <div className="mt-4">
+          <SessionSelector value={selectedSession} onChange={setSelectedSession} />
+        </div>
       </div>
 
       <div className="p-4 border-b border-sidebar-border">
