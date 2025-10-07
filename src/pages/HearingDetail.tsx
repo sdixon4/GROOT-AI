@@ -1,16 +1,53 @@
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Calendar, MapPin, Video, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, Video, AlertCircle, Copy, Clock } from 'lucide-react';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { ProvenanceFooter } from '@/components/layout/ProvenanceFooter';
 import { mockHearings, mockBills } from '@/data/mockBills';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { toast } from '@/hooks/use-toast';
 
 export default function HearingDetail() {
   const { id } = useParams();
   const hearing = mockHearings.find((h) => h.id === id);
   const bill = hearing ? mockBills.find((b) => b.id === hearing.billId) : null;
+
+  const handleCopyReconvene = () => {
+    if (hearing?.reconveneTime) {
+      const time = new Date(hearing.reconveneTime).toLocaleString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+      });
+      const room = hearing.reconveneRoom || hearing.room;
+      const text = `Reconvene ${time}, Room ${room}`;
+      
+      navigator.clipboard.writeText(text);
+      toast({
+        title: 'Copied to clipboard',
+        description: text,
+        duration: 2000,
+      });
+    }
+  };
+
+  const handleTimestampClick = (timestamp: string) => {
+    // Convert HH:MM:SS to seconds
+    const [hours, minutes, seconds] = timestamp.split(':').map(Number);
+    const totalSeconds = hours * 3600 + minutes * 60 + (seconds || 0);
+    
+    // Update URL with timestamp (mock behavior)
+    const url = new URL(window.location.href);
+    url.searchParams.set('t', totalSeconds.toString());
+    window.history.pushState({}, '', url);
+    
+    toast({
+      title: 'Timestamp link created',
+      description: `Video will start at ${timestamp}`,
+      duration: 2000,
+    });
+  };
 
   if (!hearing || !bill) {
     return (
@@ -77,19 +114,35 @@ export default function HearingDetail() {
 
           {hearing.reconveneTime && (
             <Alert className="mb-6 border-accent bg-accent/10">
-              <AlertCircle className="h-4 w-4 text-accent" />
-              <AlertTitle className="text-accent">Reconvene Scheduled</AlertTitle>
-              <AlertDescription>
-                This hearing will reconvene on{' '}
-                {new Date(hearing.reconveneTime).toLocaleString('en-US', {
-                  weekday: 'long',
-                  month: 'long',
-                  day: 'numeric',
-                  hour: 'numeric',
-                  minute: '2-digit',
-                })}{' '}
-                in Room {hearing.reconveneRoom || hearing.room}.
-              </AlertDescription>
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <AlertCircle className="h-4 w-4 text-accent" />
+                    <AlertTitle className="text-accent">Reconvene Scheduled</AlertTitle>
+                  </div>
+                  <AlertDescription>
+                    This hearing will reconvene on{' '}
+                    {new Date(hearing.reconveneTime).toLocaleString('en-US', {
+                      weekday: 'long',
+                      month: 'long',
+                      day: 'numeric',
+                      hour: 'numeric',
+                      minute: '2-digit',
+                    })}{' '}
+                    in Room {hearing.reconveneRoom || hearing.room}.
+                  </AlertDescription>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleCopyReconvene}
+                  className="gap-2"
+                  aria-label="Copy reconvene information"
+                >
+                  <Copy className="h-4 w-4" />
+                  Copy
+                </Button>
+              </div>
             </Alert>
           )}
 
@@ -130,9 +183,16 @@ export default function HearingDetail() {
                           <p className="text-sm text-muted-foreground">{speaker.organization}</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Badge variant="outline" className="text-xs">
-                            {speaker.timestamp}
-                          </Badge>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleTimestampClick(speaker.timestamp)}
+                            className="h-auto p-1 hover:bg-accent"
+                            aria-label={`Jump to ${speaker.timestamp}`}
+                          >
+                            <Clock className="h-3 w-3 mr-1" />
+                            <span className="text-xs">{speaker.timestamp}</span>
+                          </Button>
                           {speaker.stance && (
                             <Badge
                               variant={

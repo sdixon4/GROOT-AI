@@ -144,4 +144,26 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Enhanced focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Ensure interactive elements have visible focus */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+
+  /* Smooth transitions for interactive elements */
+  button,
+  a,
+  input,
+  select {
+    @apply transition-colors duration-200;
+  }
 }
