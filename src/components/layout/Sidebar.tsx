@@ -6,11 +6,12 @@ import { SessionSelector } from './SessionSelector';
 import { getCurrentSession } from '@/data/client';
 
 const navItems = [
-  { to: '/triage', icon: LayoutDashboard, label: 'Triage Queue' },
+  { to: '/triage', icon: LayoutDashboard, label: 'Incoming Bills' },
   { to: '/bills', icon: FileText, label: 'All Bills' },
   { to: '/hearings', icon: Gavel, label: 'Hearings' },
   { to: '/archive', icon: Archive, label: 'Context Archive' },
   { to: '/digests', icon: FileStack, label: 'Digests' },
+  { to: '/scorecard', icon: Search, label: 'Scorecard' },
 ];
 
 export function Sidebar() {

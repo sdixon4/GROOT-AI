@@ -12,6 +12,7 @@ import HearingDetail from "./pages/HearingDetail";
 import Archive from "./pages/Archive";
 import Digests from "./pages/Digests";
 import DigestNew from "./pages/DigestNew";
+import Scorecard from "./pages/Scorecard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/archive" element={<Archive />} />
           <Route path="/digests" element={<Digests />} />
           <Route path="/digests/new" element={<DigestNew />} />
+          <Route path="/scorecard" element={<Scorecard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
