@@ -13,6 +13,7 @@ import Archive from "./pages/Archive";
 import Digests from "./pages/Digests";
 import DigestNew from "./pages/DigestNew";
 import Scorecard from "./pages/Scorecard";
+import MTSMockup from "./pages/MTSMockup";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/digests" element={<Digests />} />
           <Route path="/digests/new" element={<DigestNew />} />
           <Route path="/scorecard" element={<Scorecard />} />
+          <Route path="/mts-mockup" element={<MTSMockup />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
