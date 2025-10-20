@@ -1,0 +1,24 @@
+{
+  "bill_id": "HB1234",
+  "title": "Relating to the University of Hawaiʻi",
+  "subject": "Higher Education",
+  "votes_timeline": [
+    {
+      "stage": "H EDU",
+      "date": "2024-02-05",
+      "totals": {"Yea": 9, "Nay": 1, "WR": 0, "Excused": 1},
+      "members": [
+        {"member_id": "HSE-ANDREW-GARRETT", "name": "Andrew Garrett", "vote": "Yea"}
+      ],
+      "source_id": "capitol:HB1234:2024:HEDU:vote1",
+      "source_updated_at": "2024-02-05T23:30:00Z"
+    }
+  ],
+  "related_bills": ["SB987","HB4321"],
+  "context_blurbs": [
+    {
+      "text": "Preceded by SB987 (2023) which established a similar UH reporting threshold.",
+      "sources": ["capitol:SB987:2023:JDC:vote3","capitol:HB1234:2024:HEDU:vote1"]
+    }
+  ]
+}

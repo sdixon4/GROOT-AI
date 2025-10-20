@@ -1,0 +1,24 @@
+{
+  "member_id": "HSE-ANDREW-GARRETT",
+  "member_name": "Andrew Takuya Garrett",
+  "subject": "Higher Education",
+  "sessions": ["2023", "2024"],
+  "totals": {"Yea": 12, "Nay": 3, "WR": 2, "Excused": 1},
+  "votes_by_stage": [
+    {
+      "bill_id": "HB1234",
+      "bill_title": "Relating to the University of Hawaiʻi",
+      "stage": "FIN Committee",
+      "date": "2024-02-15",
+      "position": "Yea",
+      "source_id": "capitol:HB1234:2024:FIN:vote1",
+      "source_updated_at": "2024-02-15T22:10:00Z"
+    }
+  ],
+  "pattern_insights": [
+    {
+      "text": "Consistently votes Yea on UH appropriations; exceptions tied to reporting amendments.",
+      "sources": ["capitol:HB1234:2024:FIN:vote1","capitol:SB987:2023:JDC:vote2"]
+    }
+  ]
+}
